@@ -167,6 +167,7 @@ body::before{
     border-radius:18px;
     padding:15px;
     border:1px solid rgba(255,255,255,.08);
+    color:#fff;
 }
 
 .card h3{
