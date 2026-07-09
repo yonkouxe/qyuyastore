@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>QyuyaStore</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            ⚡ QYUYA<span>STORE</span>
+        </div>
+
+        <ul class="nav-menu">
+            <li><a href="#home">🏠 Home</a></li>
+            <li><a href="#produk">💎 Top Up</a></li>
+            <li><a href="#produk">💰 Harga</a></li>
+            <li><a href="#custom">✨ Custom</a></li>
+        </ul>
+
+        <a href="#produk" class="nav-btn">
+            Top Up Sekarang
+        </a>
+
+    </nav>
+
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <h1>TOP UP ROBUX</h1>
+
+            <p>Cepat • Aman • Terpercaya</p>
+
+            <a href="#produk" class="btn">
+                BELI SEKARANG
+            </a>
+
+        </div>
+
+    </section>
+
+</header>  
+
+<div class="scroll-down">
+
+↓
+
+</div>
+
+</div>
+
+</section>
+
+</header>
+
+<section class="stats">
+
+    <div class="box">
+        <h2>5K+</h2>
+        <p>Transaksi Berhasil</p>
+    </div>
+
+    <div class="box">
+        <h2>99.9%</h2>
+        <p>Success Rate</p>
+    </div>
+
+    <div class="box">
+        <h2>24/7</h2>
+        <p>Customer Support</p>
+    </div>
+
+    <div class="box">
+        <h2>★★★★★</h2>
+        <p>Customer Rating</p>
+    </div>
+
+</section>
+<section class="products" id="produk">
+
+<h2>TOP UP ROBUX</h2>
+
+<div class="product-grid">
+
+    <div class="card">
+        <span class="badge">BEST SELLER</span>
+        <img src="images/robux.png" alt="Robux">
+        <h3>100 Robux</h3>
+        <p>Rp15.000</p>
+        <button onclick="pilihProduk('100 Robux - Rp15.000')">
+            Beli Sekarang
+        </button>
+    </div>
+
+    <div class="card">
+        <img src="images/robux.png" alt="Robux">
+        <h3>200 Robux</h3>
+        <p>Rp30.000</p>
+        <button onclick="pilihProduk('200 Robux - Rp30.000')">
+            Beli Sekarang
+        </button>
+    </div>
+
+   <div class="card">
+    <img src="images/robux.png" alt="Robux">
+    <h3>500 Robux</h3>
+
+    <p>Rp75.000</p>
+
+    <button onclick="pilihProduk('500 Robux - Rp75.000')">
+        Beli Sekarang
+    </button>
+</div>
+
+    <div class="card">
+
+    <span class="badge-discount">🔥 DISKON</span>
+
+    <img src="images/robux.png" alt="Robux">
+
+    <h3>1000 Robux</h3>
+
+    <p class="old-price">Rp150.000</p>
+
+    <p class="new-price">Rp140.000</p>
+
+    <button onclick="pilihProduk('1000 Robux - Rp140.000')">
+        Beli Sekarang
+    </button>
+
+</div>
+
+    <div class="card">
+
+    <span class="badge-discount">🔥 DISKON</span>
+
+    <img src="images/robux.png" alt="Robux">
+
+    <h3>2000 Robux</h3>
+
+    <p class="old-price">Rp300.000</p>
+
+    <p class="new-price">Rp280.000</p>
+
+    <button onclick="pilihProduk('2000 Robux - Rp280.000')">
+        Beli Sekarang
+    </button>
+
+</div>
+
+    <div class="card">
+
+    <span class="badge-discount">👑 BEST VALUE</span>
+
+    <img src="images/robux.png" alt="Robux">
+
+    <h3>5000 Robux</h3>
+
+    <p class="old-price">Rp750.000</p>
+
+    <p class="new-price">Rp650.000</p>
+
+    <button onclick="pilihProduk('5000 Robux - Rp650.000')">
+        Beli Sekarang
+    </button>
+
+</div>
+
+</section>
+
+<section id="custom" class="custom-section">
+
+    <div class="custom-card">
+
+        <h3>✨ Custom Robux</h3>
+
+        <input
+            type="number"
+            id="customRobux"
+            placeholder="Masukkan jumlah Robux">
+
+        <p id="customHarga">Rp0</p>
+
+        <button onclick="beliCustom()">
+          Beli Custom
+        </button>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <div class="footer-content">
+
+        <div class="footer-logo">
+            QYUYASTORE
+        </div>
+
+        <p>
+            Top Up Robux Murah • Aman • Terpercaya
+        </p>
+
+        <div class="footer-social">
+
+            <a href="#">WhatsApp</a>
+
+            <a href="#">Instagram</a>
+
+            <a href="#">TikTok</a>
+
+        </div>
+
+        <small>
+            © 2026 QyuyaStore. All Rights Reserved.
+        </small>
+
+    </div>
+
+</footer>
+
+<!-- ORDER POPUP -->
+<div class="popup-overlay" id="popupOrder">
+
+    <div class="popup-box">
+
+        <span class="close" onclick="closePopup()">&times;</span>
+
+        <h2>Order Robux</h2>
+
+        <input
+            type="text"
+            id="username"
+            placeholder="Username Roblox">
+
+        <input
+            type="text"
+            id="nominal"
+            readonly>
+
+        <h3 class="admin-title">Pilih Admin</h3>
+
+<div class="admin-list">
+
+    <div class="admin-option" onclick="pilihAdmin(1,this)">
+        <div class="avatar">👩</div>
+
+        <div class="admin-info">
+            <h4>Admin May</h4>
+            <p>⚡ Fast Response</p>
+        </div>
+
+        <span class="status">🟢</span>
+    </div>
+
+    <div class="admin-option" onclick="pilihAdmin(2,this)">
+        <div class="avatar">🦊</div>
+
+        <div class="admin-info">
+            <h4>Admin Qyuya</h4>
+            <p>💜 Online</p>
+        </div>
+
+        <span class="status">🟢</span>
+    </div>
+
+</div>
+
+<input type="hidden" id="adminTerpilih">
+
+<h3 class="admin-title">Pilih Pembayaran</h3>
+
+<div class="payment-select" onclick="togglePayment()">
+
+    <span id="paymentText">
+        Pilih metode pembayaran
+    </span>
+
+    <span>
+        ▼
+    </span>
+
+</div>
+
+
+<div class="payment-dropdown" id="paymentDropdown">
+
+    <div onclick="pilihPembayaran('Dana')">
+        Dana
+    </div>
+
+    <div onclick="pilihPembayaran('OVO')">
+        OVO
+    </div>
+
+    <div onclick="pilihPembayaran('GoPay')">
+        GoPay
+    </div>
+
+    <div onclick="pilihPembayaran('QRIS')">
+        QRIS
+    </div>
+
+    <div onclick="pilihPembayaran('Transfer Bank')">
+        Transfer Bank
+    </div>
+
+</div>
+
+
+<input type="hidden" id="payment">
+
+        <button class="chat-btn" onclick="kirimWhatsapp()">
+    Chat Sekarang
+</button>
+
+    </div>
+
+</div>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/6282265057169"
+   class="floating-wa"
+   target="_blank">
+
+    💬
+
+</a>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/script.js"></script>
+
+</body>
+
+</html>

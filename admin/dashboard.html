@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard QyuyaStore</title>
+
+<link rel="stylesheet" href="admin.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header class="top">
+
+<h1>QYUYASTORE</h1>
+
+<p>Admin Dashboard</p>
+
+<button onclick="logout()">
+Logout
+</button>
+
+</header>
+
+<section class="stats">
+
+<div class="box">
+
+<div class="icon">📦</div>
+
+<h2 id="totalOrder">0</h2>
+
+<span>Total Order</span>
+
+</div>
+
+<div class="box">
+<h2 id="pendingOrder">0</h2>
+<span>Pending</span>
+</div>
+
+<div class="box">
+<h2 id="selesaiOrder">0</h2>
+<span>Selesai</span>
+</div>
+
+<div class="box">
+<h2 id="omzet">Rp0</h2>
+<span>Omzet</span>
+</div>
+
+</section>
+
+<div class="search">
+
+<input
+id="searchInput"
+type="text"
+placeholder="Cari Username...">
+
+</div>
+
+<section class="orders" id="orders">
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="admin.js"></script>
+
+</body>
+</html>
