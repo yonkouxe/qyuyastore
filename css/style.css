@@ -1074,18 +1074,13 @@ STATISTICS
 .stats{
 
     width:100%;
+    max-width:1200px;
+    margin:auto;
     padding:90px 20px;
-
-    background:transparent;
 
     display:grid;
     grid-template-columns:repeat(4,1fr);
-
     gap:25px;
-
-    max-width:1200px;
-
-    margin:auto;
 
 }
 
@@ -1137,7 +1132,7 @@ STATISTICS
 
     color:#ddd;
 
-    font-size:16px;
+    font-size:15px;
 
 }
 
@@ -1183,12 +1178,15 @@ footer{
 .footer-logo{
 
     font-size:34px;
-
-    font-weight:bold;
-
+    font-weight:800;
     letter-spacing:3px;
-
     margin-bottom:15px;
+
+    color:#ffffff;
+
+    text-shadow:
+        0 0 12px #b14cff,
+        0 0 25px rgba(255,79,216,.5);
 
 }
 
@@ -1326,27 +1324,25 @@ grid-template-columns:repeat(2,1fr);
 
 }
 
-@media(max-width:768px){
-
 .stats{
 
-grid-template-columns:1fr;
-
-padding:70px 18px;
-
-gap:18px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
 
 }
 
 .box{
 
-padding:25px 18px;
+    padding:20px 15px;
+    border-radius:20px;
+    min-height:120px;
 
 }
 
 .box h2{
 
-font-size:32px;
+    font-size:36px;
 
 }
 
@@ -1387,8 +1383,6 @@ bottom:18px;
 .custom-section{
 
 margin-bottom:70px;
-
-}
 
 }
 
@@ -1708,5 +1702,36 @@ RESPONSIVE HP
         font-size:13px;
 
     }
+
+}
+
+@media (max-width:768px){
+
+.stats{
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+
+}
+
+.box{
+
+    padding:18px 12px;
+    min-height:120px;
+
+}
+
+.box h2{
+
+    font-size:32px;
+
+}
+
+.box p{
+
+    font-size:14px;
+
+}
 
 }
