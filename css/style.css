@@ -1651,3 +1651,62 @@ input[type="number"]{
 .admin-info p{
     color:#cfcfcf;
 }
+
+/*====================================
+RESPONSIVE HP
+====================================*/
+
+@media screen and (max-width:768px){
+
+    .products{
+        padding:60px 15px;
+    }
+
+    .products h2{
+        font-size:38px;
+        margin-bottom:35px;
+    }
+
+    .product-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:15px;
+
+    }
+
+    .card{
+
+        padding:18px 12px;
+        border-radius:18px;
+
+    }
+
+    .card img{
+
+        width:70px;
+        margin-bottom:12px;
+
+    }
+
+    .card h3{
+
+        font-size:17px;
+
+    }
+
+    .card p{
+
+        font-size:16px;
+
+    }
+
+    .card button{
+
+        margin-top:15px;
+        padding:10px;
+        font-size:13px;
+
+    }
+
+}
