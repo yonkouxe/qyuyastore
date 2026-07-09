@@ -73,12 +73,19 @@ let username = document.getElementById("username").value;
 let nominal = document.getElementById("nominal").value;
 let payment = document.getElementById("payment").value;
 
-
 if(username=="" || nominal=="" || payment==""){
 
-alert("Lengkapi semua data terlebih dahulu!");
+    alert("Lengkapi semua data terlebih dahulu!");
 
-return;
+    return;
+
+}
+
+if(adminDipilih === ""){
+
+    alert("Silakan pilih admin terlebih dahulu!");
+
+    return;
 
 }
 
@@ -209,10 +216,6 @@ async function loadStock(){
         Number(data[0].robux_stock).toLocaleString("id-ID");
 
 }
-
-loadStock();
-
-loadStock();
 loadStock();
 
 sb.channel("stock")
