@@ -166,7 +166,6 @@ function pilihPembayaran(nama){
 
 }
 
-
 const customInput = document.getElementById("customRobux");
 const customHarga = document.getElementById("customHarga");
 
@@ -176,12 +175,12 @@ if (customInput && customHarga) {
 
         const robux = parseInt(customInput.value) || 0;
 
-        let hargaPerRobux = 150;
+        let hargaPerRobux = 140;
 
         if (robux >= 5000) {
             hargaPerRobux = 130;
         } else if (robux >= 1000) {
-            hargaPerRobux = 140;
+            hargaPerRobux = 135;
         }
 
         const total = robux * hargaPerRobux;
@@ -192,3 +191,4 @@ if (customInput && customHarga) {
     });
 
 }
+
