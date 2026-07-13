@@ -1752,3 +1752,9 @@ RESPONSIVE HP
         0 0 20px rgba(157,78,221,.35);
 
 }
+/* Khusus iPhone / Safari */
+@supports (-webkit-touch-callout: none) {
+    body{
+        background-attachment: scroll;
+    }
+}
