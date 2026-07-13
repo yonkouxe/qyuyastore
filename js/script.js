@@ -51,22 +51,6 @@ function closePopup(){
 
 }
 
-let adminDipilih = "";
-
-function pilihAdmin(id, element){
-
-    adminDipilih = id;
-
-    document.getElementById("adminTerpilih").value =
-        id == 1 ? "Admin May" : "Admin Qyuya";
-
-    document.querySelectorAll(".admin-option").forEach(card=>{
-        card.classList.remove("active");
-    });
-
-    element.classList.add("active");
-}
-
 async function kirimWhatsapp(){
 
 let username = document.getElementById("username").value;
@@ -81,26 +65,8 @@ if(username=="" || nominal=="" || payment==""){
 
 }
 
-if(adminDipilih === ""){
 
-    alert("Silakan pilih admin terlebih dahulu!");
-
-    return;
-
-}
-
-    let nomor="";
-
-    if(adminDipilih==1){
-
-        nomor="6281278363732";
-
-    }else{
-
-        nomor="6282265057169";
-
-    }
-
+const nomor = "6281312588542"; // Nomor Admin QYUYA STORE
     let pesan =
 `Halo Admin QyuyaStore 👋
 
@@ -110,7 +76,7 @@ Username : ${username}
 Nominal : ${nominal}
 Pembayaran : ${payment}`;
 
-let admin = document.getElementById("adminTerpilih").value;
+let admin = "QYUYA STORE";
 
 const { error } = await sb
 .from("orders")
@@ -166,6 +132,7 @@ function pilihPembayaran(nama){
 
 }
 
+
 const customInput = document.getElementById("customRobux");
 const customHarga = document.getElementById("customHarga");
 
@@ -191,4 +158,3 @@ if (customInput && customHarga) {
     });
 
 }
-
