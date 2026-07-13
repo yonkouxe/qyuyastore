@@ -5,40 +5,31 @@
 
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-
-    background-image: url("../images/imagepc.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    /* Hapus ini */
-    /* background-attachment: fixed; */
+body { 
+   margin: 0; 
+   font-family: 'Poppins', sans-serif; 
+   background-image: url("../images/imagepc.png"); 
+   background-size: cover; background-position: center; 
+   background-repeat: no-repeat; 
+   background-attachment: fixed; 
+} 
+/* khusus HP */ 
+@media (max-width: 768px) { 
+   body { 
+      background-image: url("../images/imagehp.png"); 
+      background-size: cover; 
+      background-position: center; 
+   } 
+} 
+body::before{ 
+   content:""; 
+   position:fixed; 
+   inset:0; 
+   background:rgba(0,0,0,.35); 
+   pointer-events:none; 
+   z-index:-1; 
 }
 
-/* khusus HP */
-@media (max-width: 768px) {
-
-    body {
-        background-image: url("../images/imagehp.png");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-attachment: scroll;
-    }
-
-}
-
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.35);
-    pointer-events:none;
-    z-index:-1;
-}
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 
