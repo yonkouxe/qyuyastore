@@ -66,7 +66,7 @@ if(username=="" || nominal=="" || payment==""){
 }
 
 
-const nomor = "6281312588542"; // Nomor Admin QYUYA STORE
+const nomor = "6289676664050"; // Nomor Admin QYUYA STORE
     let pesan =
 `Halo Admin QyuyaStore 👋
 
