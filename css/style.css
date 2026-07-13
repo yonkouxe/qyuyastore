@@ -13,9 +13,10 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-}
 
+    /* Hapus ini */
+    /* background-attachment: fixed; */
+}
 
 /* khusus HP */
 @media (max-width: 768px) {
@@ -24,6 +25,8 @@ body {
         background-image: url("../images/imagehp.png");
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: scroll;
     }
 
 }
