@@ -235,54 +235,52 @@ async function hapusOrder(id){
 // SEARCH
 // ===============================
 
-document
-.getElementById("searchInput")
-.addEventListener("input",function(){
+const searchAccount = document.getElementById("searchAccount");
 
 
-    const keyword =
-    this.value.toLowerCase();
+if(searchAccount){
+
+    searchAccount.addEventListener("input",function(){
+
+        const keyword =
+        this.value.toLowerCase();
+
+
+        const cards =
+        document.querySelectorAll(".account-card");
+
+
+        cards.forEach(card=>{
+
+
+            const username =
+            card.querySelector(".username")
+            .innerText
+            .toLowerCase();
 
 
 
-    const cards =
-    document.querySelectorAll(".card");
+            if(username.includes(keyword)){
 
 
-
-    cards.forEach(card=>{
-
-
-        const username =
-        card
-        .querySelector("h3")
-        .innerText
-        .toLowerCase();
+                card.style.display="block";
 
 
-
-        if(username.includes(keyword)){
-
-
-            card.style.display="block";
+            }else{
 
 
-        }else{
+                card.style.display="none";
 
 
-            card.style.display="none";
+            }
 
 
-        }
+        });
 
 
     });
 
-
-});
-
-
-
+}
 
 // ===============================
 // FILTER
@@ -335,5 +333,311 @@ async function logout(){
 
 }
 
-// LOAD PERTAMA
-loadOrders();
+// ===============================
+// AKUN ROBLOX
+// ===============================
+
+let currentCard = null;
+
+
+
+function openModal(){
+
+    document
+    .getElementById("accountModal")
+    .style.display="flex";
+
+}
+
+
+
+function closeModal(){
+
+    document
+    .getElementById("accountModal")
+    .style.display="none";
+
+
+    currentCard=null;
+
+
+    document
+    .getElementById("modalTitle")
+    .innerText="Tambah Akun Roblox";
+
+}
+
+
+
+
+
+function saveAccount(){
+
+
+    const username =
+    document.getElementById("accUsername").value;
+
+
+    const password =
+    document.getElementById("accPassword").value;
+
+
+    const robux =
+    document.getElementById("accRobux").value;
+
+
+    const status =
+    document.getElementById("accStatus").value;
+
+
+
+    if(username=="" || password=="" || robux==""){
+
+        alert("Lengkapi semua data!");
+
+        return;
+
+    }
+
+
+
+    let icon =
+    status=="Belum Limit"
+    ?"🟢"
+    :"🔴";
+
+
+
+
+    // EDIT AKUN
+
+    if(currentCard){
+
+
+        currentCard
+        .querySelector(".username")
+        .innerText=username;
+
+
+        currentCard
+        .querySelector(".username-title")
+        .innerText=username;
+
+
+
+        currentCard
+        .querySelector(".password")
+        .innerText=password;
+
+
+
+        currentCard
+        .querySelector(".robux")
+        .innerText=robux;
+
+
+
+        currentCard
+        .querySelector(".status")
+        .innerText=
+        icon+" "+status;
+
+
+    }
+
+
+
+    // TAMBAH AKUN
+
+    else{
+
+
+        const html = `
+
+        <div class="account-card">
+
+
+            <h3 class="username-title">
+            ${username}
+            </h3>
+
+
+            <p>
+            👤 Username :
+            <span class="username">
+            ${username}
+            </span>
+            </p>
+
+
+
+            <p class="password-row">
+
+            🔑 Password :
+            <span class="password">
+            ${password}
+            </span>
+
+
+            <button class="copy-btn"
+            onclick="copyPassword(this)">
+            📋
+            </button>
+
+            </p>
+
+
+
+
+            <p>
+            💰 Robux :
+            <span class="robux">
+            ${robux}
+            </span>
+            </p>
+
+
+
+            <p>
+
+            <span class="status">
+            ${icon} ${status}
+            </span>
+
+            </p>
+
+
+
+
+            <div class="btns">
+
+                <button class="edit"
+                 onclick="editAccount(this)"
+                 title="Edit Akun">
+                 ✏️
+                </button>
+
+
+                <button class="delete"
+                 onclick="deleteAccount(this)"
+                 title="Hapus Akun">
+                 🗑️
+                </button>
+
+            </div>  
+
+
+        </div>
+
+        `;
+
+
+
+        document
+        .getElementById("accounts")
+        .innerHTML += html;
+
+
+    }
+
+
+
+    closeModal();
+
+
+
+    document.getElementById("accUsername").value="";
+    document.getElementById("accPassword").value="";
+    document.getElementById("accRobux").value="";
+
+
+
+}
+
+
+
+
+function editAccount(btn){
+
+
+    currentCard =
+    btn.closest(".account-card");
+
+
+
+    document.getElementById("accUsername").value =
+    currentCard.querySelector(".username").innerText;
+
+
+
+    document.getElementById("accPassword").value =
+    currentCard.querySelector(".password").innerText;
+
+
+
+    document.getElementById("accRobux").value =
+    currentCard.querySelector(".robux").innerText;
+
+
+
+    let status =
+    currentCard.querySelector(".status").innerText;
+
+
+
+    document.getElementById("accStatus").value =
+    status.includes("Belum")
+    ?"Belum Limit"
+    :"Sudah Limit";
+
+
+
+    document
+    .getElementById("modalTitle")
+    .innerText="Edit Akun Roblox";
+
+
+
+    openModal();
+
+
+}
+
+
+
+
+
+function deleteAccount(btn){
+
+
+    if(confirm("Yakin ingin menghapus akun ini?")){
+
+
+        btn
+        .closest(".account-card")
+        .remove();
+
+
+    }
+
+
+}
+
+function copyPassword(btn){
+
+
+    let password =
+    btn.parentElement
+    .querySelector(".password")
+    .innerText;
+
+
+
+    navigator.clipboard.writeText(password);
+
+
+
+    alert("Password berhasil dicopy");
+
+
+}
