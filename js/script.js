@@ -43,11 +43,37 @@ function pilihProduk(nominal){
 
     document.getElementById("popupOrder").style.display = "flex";
 
+    // Reset username
+    document.getElementById("username").value = "";
+
+    // Reset admin
+    document.getElementById("adminTerpilih").value = "";
+
+    document.querySelectorAll(".admin-option").forEach(card=>{
+        card.classList.remove("selected");
+    });
+
+    // Reset pembayaran
+    document.getElementById("payment").value = "";
+    document.getElementById("paymentText").innerText = "Pilih metode pembayaran";
+
 }
 
 function closePopup(){
 
     document.getElementById("popupOrder").style.display = "none";
+
+}
+
+function pilihAdmin(admin, element){
+
+    document.querySelectorAll(".admin-option").forEach(card=>{
+        card.classList.remove("active");
+    });
+
+    element.classList.add("active");
+
+    document.getElementById("adminTerpilih").value = admin;
 
 }
 
@@ -65,18 +91,39 @@ if(username=="" || nominal=="" || payment==""){
 
 }
 
+const adminTerpilih = document.getElementById("adminTerpilih").value;
 
-const nomor = "6289676664050"; // Nomor Admin QYUYA STORE
-    let pesan =
-`Halo Admin QyuyaStore 👋
+if(adminTerpilih == ""){
+
+    alert("Silakan pilih admin terlebih dahulu!");
+
+    return;
+
+}
+
+let nomor = "";
+let admin = "";
+
+if(adminTerpilih == "1"){
+
+    nomor = "6281278363732"; // Nomor Admin May
+    admin = "Admin May";
+
+}else if(adminTerpilih == "2"){
+
+    nomor = "6282265057169"; // Nomor Admin Qyuya
+    admin = "Admin Qyuya";
+
+}
+
+let pesan =
+`Halo ${admin} 👋
 
 Saya ingin Top Up Robux
 
 Username : ${username}
 Nominal : ${nominal}
 Pembayaran : ${payment}`;
-
-let admin = "QYUYA STORE";
 
 const { error } = await sb
 .from("orders")
@@ -93,7 +140,7 @@ const { error } = await sb
 
 if(error){
 
-    console.log("DETAIL ERROR:", error);
+    console.log(error);
 
     alert(error.message);
 
@@ -101,13 +148,10 @@ if(error){
 
 }
 
-console.log("Order berhasil disimpan ke Supabase");
-
-    window.open(
+window.open(
     `https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`,
     "_blank"
-    );
-
+);
 }
 
 function togglePayment(){
